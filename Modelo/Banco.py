@@ -32,3 +32,18 @@ class Banco:
         else:
             self.clientes.remove(clienteEncontrado)
             print(f"El cliente: {clienteEncontrado.getNombre()} {clienteEncontrado.getApellido()} con DNI: {clienteEncontrado.getDni()} ha sido dado de baja")
+    
+    def login(self):
+        nombre= Utilidades.leerString("Nombre: ")
+        dni= Utilidades.leerInteger("Dni: ")
+
+        clienteEncontrado= None
+        for usuario in self.clientes:
+            if usuario.getDni()==dni and usuario.getNombre()== nombre:
+                clienteEncontrado= usuario
+        
+        if clienteEncontrado == None:
+            print(f"Error: nombre o dni introducido no es correcto")
+        else:
+            clienteEncontrado.menu()
+        

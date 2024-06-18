@@ -11,3 +11,11 @@ class Utilidades:
                 return respuesta
             except:
                 print("Introduce un valor válido")
+    
+    def leerFloat(dato):
+        while True:
+            try:
+                respuesta=float(input(dato))
+                return respuesta
+            except:
+                print("Introduce un valor válido")
