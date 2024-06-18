@@ -18,3 +18,17 @@ class Banco:
         else:
             self.clientes.append(cliente)
             print(f"El cliente: {cliente.getNombre()} {cliente.getApellido()} con DNI: {cliente.getDni()} ha sido dado de alta")
+    
+    def bajaCliente(self):
+        dni= Utilidades.leerInteger("Introduce el dni del cliente que quieres dar de baja SIN letra: ")
+
+        clienteEncontrado=None
+        for usuario in self.clientes:
+            if usuario.getDni()==dni:
+                clienteEncontrado= usuario
+        
+        if clienteEncontrado == None:
+            print(f"Lo siento el cliente con DNI: {dni} no esta registrado")
+        else:
+            self.clientes.remove(clienteEncontrado)
+            print(f"El cliente: {clienteEncontrado.getNombre()} {clienteEncontrado.getApellido()} con DNI: {clienteEncontrado.getDni()} ha sido dado de baja")
