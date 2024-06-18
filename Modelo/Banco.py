@@ -46,4 +46,10 @@ class Banco:
             print(f"Error: nombre o dni introducido no es correcto")
         else:
             clienteEncontrado.menu()
+
+    def listaClientes(self):
+        self.clientes.sort(key=lambda cliente:cliente.getDineroTotal(), reverse=True)
+
+        for cliente in self.clientes:
+            print(f"Nombre: {cliente.getNombre()} {cliente.getApellido()} -- Dinero total: {cliente.getDineroTotal()}€")
         

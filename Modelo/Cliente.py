@@ -90,6 +90,13 @@ class Cliente:
             total += cuenta.getCantidad()
         
         print(f"El total de todas tus cuentas es de: {total}€")
+
+    def getDineroTotal(self):
+        total=0
+        for cuenta in self.cuentas:
+            total += cuenta.getCantidad()
+        
+        return total
     
     def menu(self):
         salir=False
