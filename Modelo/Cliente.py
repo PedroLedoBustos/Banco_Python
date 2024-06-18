@@ -27,6 +27,21 @@ class Cliente:
             self.cuentas.append(cuentaNueva)
             print("Cuenta dada de alta")
 
+    def bajaCuenta(self):
+        numeroCuenta= Utilidades.leerInteger("Introduce el número de cuenta que quieres dar de baja: ")
+        cuentaEncontrada= None
+
+        for cuenta in self.cuentas:
+            if cuenta.getNumero() == numeroCuenta:
+                cuentaEncontrada= cuenta
+        
+        if cuentaEncontrada == None:
+            print(f"La cuenta con numero: {numeroCuenta} no esta registrada")
+        else:
+            self.cuentas.remove(cuentaEncontrada)
+            print(f"La cuenta con numero: {cuentaEncontrada.getNumero()} ha sido dada de baja")
+            
+
     def ingresoDinero(self):
         numeroCuenta= Utilidades.leerInteger("Introduce el número de cuenta: ")
 
@@ -54,6 +69,19 @@ class Cliente:
         else:
             cantidadSacar= Utilidades.leerFloat("Introduce la cantidad que quieres retirar: ")
             cuentaEncontrada.sacar(cantidadSacar)
+    
+    def dineroCuenta(self):
+        numeroCuenta= Utilidades.leerInteger("Introduce el número de cuenta: ")
+
+        cuentaEncontrada=None
+        for cuenta in self.cuentas:
+            if cuenta.getNumero()== numeroCuenta:
+                cuentaEncontrada= cuenta
+        
+        if cuentaEncontrada == None:
+            print("Lo siento, esta cuenta no esta registrada")
+        else:
+            print(f"La cuenta con número: {cuentaEncontrada.getNumero()} tiene {cuentaEncontrada.getCantidad()}€")
 
 
     def dineroTotal(self):
