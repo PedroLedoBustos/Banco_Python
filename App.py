@@ -1,5 +1,7 @@
+from Modelo.Banco import Banco
 from Utilidades.Utilidades import Utilidades
 
+banco= Banco()
 
 def menu():
     salir=False
